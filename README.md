@@ -12,4 +12,4 @@
   The main difference from previous projects was the use of JavaSckript to execute some elements.<br>
   <br>
 
-  Follow the [project](https://github.com/Mr-Markovka/mesto.git)
+  Follow the [project](https://mr-markovka.github.io/mesto/index.html)
