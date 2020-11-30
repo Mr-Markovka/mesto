@@ -1,0 +1,36 @@
+.profile__info-about {
+    margin: 0 auto 25px 0;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 600px) {
+    .profile__info-about {
+        text-align: center;
+        padding-right: 24px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .profile__info-about {
+        text-align: center;
+        font-size: 16px;
+        line-height: 19px;
+        margin: 0 auto 36px auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .profile__info-about {
+        margin: 0 auto 36px 0;
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
