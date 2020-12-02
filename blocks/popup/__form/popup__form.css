@@ -1,5 +1,4 @@
 .popup__form {
-    /*display: none;*/
     width: 430px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.5);
@@ -14,16 +13,15 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-left: -215px;
-    margin-top: -165px;
+    transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%); /* Для Firefox */
+    -ms-transform: translate(-50%, -50%); /* Для IE */
+    -webkit-transform: translate(-50%, -50%); /* Для Safari, Chrome, iOS */
+    -o-transform: translate(-50%, -50%); /* Для Opera */
 }
 
 @media screen and (max-width: 540px) {
   .popup__form {
       width: 282px;
-      top: 50%;
-      left: 50%;
-      margin-left: -141px;
-      margin-top: -161px;
   }
 }

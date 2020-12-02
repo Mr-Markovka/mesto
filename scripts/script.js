@@ -27,13 +27,10 @@ function handleFormSubmit(event) {
     profileInfoName.textContent = inputName.value;
     profileInfoAbout.textContent = inputAbout.value;
 }
-popupForm.addEventListener('submit', handleFormSubmit);
-
-
+buttonClose.addEventListener('click', handleButtonCloseClick);
 
 
 buttonOpen.addEventListener('click', handleButtonOpenClick);
-buttonClose.addEventListener('click', handleButtonCloseClick);
 popupForm.addEventListener('submit', handleFormSubmit);
 popupBtnAdd.addEventListener('click', handleButtonCloseClick);
 
