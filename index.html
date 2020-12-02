@@ -4,113 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css">
-    
+    <link rel="stylesheet" href="./pages/index.css">   
 </head>
+
 <body class="body">
     <div class="page">
         
         <header class="header">
-            <a target="_self" href="#"><img class="header__logo" alt="Логотип место Россия." src="./images/logo.svg"></a>
-            <div class="header__line"></div>
+            <a class="header__link" target="_self" href="#"><img class="header__logo" alt="Логотип место Россия." src="./images/logo.svg"></a>
         </header>
 
-        <section class="profile">
-            <img class="profile__avatar" alt="фото автора." src="./images/myPhoto.jpg">
+        <main class="content">
 
-            <div class="profile__info">
-                <div class="profile__group">
-                    <h1 class="profile__info-name">Анастасия Шилина</h1>
-                    <button class="profile__open-button button-open" type="button"><img alt="#" src="./images/editButton.svg"></button>
+            <section class="profile">
+                <img class="profile__avatar" alt="фото автора." src="./images/myPhoto.jpg">
+
+                <div class="profile__info">
+                    <div class="profile__group">
+                        <h1 class="profile__info-name">Анастасия Шилина</h1>
+                        <button class="profile__open-button" type="button"><img alt="#" src="./images/editButton.svg"></button>
+                    </div>
+                    <p class="profile__info-about">Исследователь Египта</p>
                 </div>
-                <p class="profile__info-about">Исследователь Египта</p>
-            </div>
-            <img class="profile__add-button" alt="#" src="./images/addButton.svg">
-        </section>
+                <button class="profile__add-button" type="button"><img class="profile__add-button-vector"alt="#" src="./images/addButtonVector.svg"></button>
+            </section>
 
 
-        <section class="popup">
-             <div class="popup__container"><!-- основное окно формы -->   
-                    <form class="popup__form">
-                        <button class="popup__close-btn button-close" type="button"></button>
-                        <h2 class="popup__header">Редактировать профиль</h2>
-                        <div>
-                            <fieldset class="popup__form popup__form_item">
-                                <label class="popup__label" for="name"></label>
-                                <input class="popup__input input-name" type="text" placeholder="Имя" name="name">
-
-                                <label class="popup__label" for="about"></label>
-                                <input class="popup__input input-about" type="text" placeholder="О себе" name="about">
-                            </fieldset>
-
-                        </div>
-                        <fieldset class="popup__form popup__form_item">
-                            <button type="submit" class="popup__btn popup__btn-add">Сохранить</button>
-                        </fieldset>
+            <section class="popup">
+                <form class="popup__form" name="form">
+                    <button class="popup__close-btn" type="button"></button>
+                    <h2 class="popup__header">Редактировать профиль</h2>
+                    <input class="popup__input input-name" type="text" placeholder="Имя" name="name">
+                    <input class="popup__input input-about" type="text" placeholder="О себе" name="about">
+                    <button type="submit" class="popup__btn popup__btn-add">Сохранить</button>
                 </form>
-             </div>
-        </section>
+            </section>
 
        
-        <section class="elements">
-            <ul class="cards">
+            <section class="elements">
+                <ul class="cards">
 
-                <li class="cards__item">
-                  <img class="cards__image" alt="Два верблюда на переднем плане смотрящих на пирамиды." src="./images/giza.jpg">
-                  <div class="cards__bottom">
-                        <h3 class="cards__title">Гиза</h3>
-                        <a class="cards__like cards__like_active" target="_self" href="#"></a>
-                  </div>
-                </li>
+                    <li class="cards__item">
+                        <img class="cards__image" alt="Два верблюда на переднем плане смотрящих на пирамиды." src="./images/giza.jpg">
+                        <div class="cards__bottom">
+                                <h3 class="cards__title">Гиза</h3>
+                                <button class="cards__like cards__like_active" type="button"><img alt="#" src="./images/like.svg"></button>
+                        </div>
+                    </li>
 
-                <li class="cards__item">
-                    <img class="cards__image" alt="Вид на мечеть с минаретами." src="./images/cairo.jpg">
-                    <div class="cards__bottom">
-                        <h3 class="cards__title">Каир</h3>
-                        <a class="cards__like cards__like_active" target="_self" href="#"></a>
-                    </div>
-                </li>
+                    <li class="cards__item">
+                        <img class="cards__image" alt="Вид на мечеть с минаретами." src="./images/cairo.jpg">
+                        <div class="cards__bottom">
+                            <h3 class="cards__title">Каир</h3>
+                            <button class="cards__like cards__like_active" type="button"><img alt="#" src="./images/like.svg"></button>
+                        </div>
+                    </li>
 
-                <li class="cards__item">
-                    <img class="cards__image" alt="Вид на порт с лодками и Александрию." src="./images/alexandria.jpg">
-                    <div class="cards__bottom">
-                        <h3 class="cards__title">Александрия</h3>
-                        <a class="cards__like cards__like_active" target="_self" href="#"></a>
-                    </div>
-                </li>
+                    <li class="cards__item">
+                        <img class="cards__image" alt="Вид на порт с лодками и Александрию." src="./images/alexandria.jpg">
+                        <div class="cards__bottom">
+                            <h3 class="cards__title">Александрия</h3>
+                            <button class="cards__like cards__like_active" type="button"><img alt="#" src="./images/like.svg"></button>
+                        </div>
+                    </li>
 
-                <li class="cards__item">
-                    <img class="cards__image" alt="Вид на статуи при входе в храм." src="./images/luxor.jpg">
-                    <div class="cards__bottom">
-                        <h3 class="cards__title">Люксор</h3>
-                        <a class="cards__like cards__like_active" target="_self" href="#"></a>
-                    </div>
-                </li>
+                    <li class="cards__item">
+                        <img class="cards__image" alt="Вид на статуи при входе в храм." src="./images/luxor.jpg">
+                        <div class="cards__bottom">
+                            <h3 class="cards__title">Люксор</h3>
+                            <button class="cards__like cards__like_active" type="button"><img alt="#" src="./images/like.svg"></button>
+                        </div>
+                    </li>
 
-                <li class="cards__item">
-                    <img class="cards__image" alt="Вид сверху на Монастырь Святой Екатерины." src="./images/monastery.jpg">
-                    <div class="cards__bottom">
-                        <h3 class="cards__title">Синай</h3>
-                        <a class="cards__like cards__like_active" target="_self" href="#"></a>
-                    </div>
-                </li>
+                    <li class="cards__item">
+                        <img class="cards__image" alt="Вид сверху на Монастырь Святой Екатерины." src="./images/monastery.jpg">
+                        <div class="cards__bottom">
+                            <h3 class="cards__title">Синай</h3>
+                            <button class="cards__like cards__like_active" type="button"><img alt="#" src="./images/like.svg"></button>
+                        </div>
+                    </li>
 
-                <li class="cards__item">
-                    <img class="cards__image" alt="Вид под водой на коралловый риф и рыб." src="./images/sharm.jpg">
-                    <div class="cards__bottom">
-                        <h3 class="cards__title">Шарм Эль Шейх</h3>
-                    <a class="cards__like cards__like_active" target="_self" href="#"></a>
-                    </div>
-                </li>
+                    <li class="cards__item">
+                        <img class="cards__image" alt="Вид под водой на коралловый риф и рыб." src="./images/sharm.jpg">
+                        <div class="cards__bottom">
+                            <h3 class="cards__title">Шарм Эль Шейх</h3>
+                            <button class="cards__like cards__like_active" type="button"><img alt="#" src="./images/like.svg"></button>
+                        </div>
+                    </li>
 
-            </ul>
-        </section>
-
+                </ul>
+            </section>
+        </main>
 
         <footer class="footer">
             <p class="footer__author">&copy;2020.Mesto Russia</p>
         </footer>
     </div>
-    <script src="script.js"></script>
+    <script src="./scripts/script.js"></script>
 </body>
 </html>
