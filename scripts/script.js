@@ -13,9 +13,9 @@ let inputAbout = document.querySelector('.input-about');
 let popupBtnAdd = document.querySelector('.popup__btn-add');
 
 function handleButtonOpenClick() {
-    popup.classList.add('popup_opened');
     inputName.value = profileInfoName.textContent;
     inputAbout.value = profileInfoAbout.textContent;
+    popup.classList.add('popup_opened');
 }
 
 function handleButtonCloseClick() {
@@ -26,13 +26,13 @@ function handleFormSubmit(event) {
     event.preventDefault();
     profileInfoName.textContent = inputName.value;
     profileInfoAbout.textContent = inputAbout.value;
+    handleButtonCloseClick();
 }
 buttonClose.addEventListener('click', handleButtonCloseClick);
 
-
 buttonOpen.addEventListener('click', handleButtonOpenClick);
 popupForm.addEventListener('submit', handleFormSubmit);
-popupBtnAdd.addEventListener('click', handleButtonCloseClick);
+
 
 
 
