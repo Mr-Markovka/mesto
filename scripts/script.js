@@ -32,8 +32,3 @@ buttonClose.addEventListener('click', handleButtonCloseClick);
 
 buttonOpen.addEventListener('click', handleButtonOpenClick);
 popupForm.addEventListener('submit', handleFormSubmit);
-
-
-
-
-    
