@@ -1,6 +1,7 @@
-.popup_opened {
+.popup-add_opened {
     /*display: flex;*/
     /*плавное появление*/
     visibility: visible;
     opacity: 1;
+
 }

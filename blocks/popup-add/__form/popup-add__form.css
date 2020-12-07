@@ -1,4 +1,4 @@
-.popup__form {
+.popup-add__form {
     width: 430px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.5);
@@ -14,7 +14,7 @@
 }
 
 @media screen and (max-width: 540px) {
-  .popup__form {
+  .popup-add__form {
       width: 282px;
   }
 }

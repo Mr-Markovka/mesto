@@ -1,9 +1,7 @@
-.popup__form {
-    width: 430px;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.5);
-    background-color: #fff;
-    position: absolute;
+.popup-img__window {
+    max-width: 75vw;
+    max-height: 75vh;
+    border-radius: 0px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -11,10 +9,4 @@
     -ms-transform: translate(-50%, -50%); /* Для IE */
     -webkit-transform: translate(-50%, -50%); /* Для Safari, Chrome, iOS */
     -o-transform: translate(-50%, -50%); /* Для Opera */
-}
-
-@media screen and (max-width: 540px) {
-  .popup__form {
-      width: 282px;
-  }
 }
