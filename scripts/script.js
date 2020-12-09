@@ -143,9 +143,10 @@ function composeItem(item){
     const newItem = template.content.cloneNode(true);
     newItem.querySelector('.cards__title').textContent = item.name;
     newItem.querySelector('.cards__img').src = item.link;
+    const cardsBtnRemove = newItem.querySelector('.cards__btn-remove');
+    cardsBtnRemove.addEventListener('click', removeItem);
     return newItem;
 }
-
 
 function bindAddItemListener() {
     const popupAddBtn = document.querySelector('.popup-add__btn');
@@ -158,5 +159,12 @@ function addNewItem() {
         let newItemCards = composeItem({name: inputText, link: inputRef});
         listContainerElement.prepend(newItemCards);
 }
+
+function removeItem(event){
+    const targetElement = event.target;
+    const targetItem = targetElement.closest('.cards__item');
+    targetItem.remove();
+}
+
 renderList();
 bindAddItemListener();
