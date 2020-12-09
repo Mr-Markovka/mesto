@@ -1,4 +1,4 @@
-
+/*попап профайла*/ 
 const buttonOpen = document.querySelector('.profile__open-button');
 const buttonClose = document.querySelector('.popup__close-btn');
 const popup = document.querySelector('.popup');
@@ -28,40 +28,50 @@ function handleFormSubmit(event) {
     profileInfoAbout.textContent = inputAbout.value;
     handleButtonCloseClick();
 }
-buttonClose.addEventListener('click', handleButtonCloseClick);
 
 buttonOpen.addEventListener('click', handleButtonOpenClick);
 popupForm.addEventListener('submit', handleFormSubmit);
+buttonClose.addEventListener('click', handleButtonCloseClick);
+
+
+/* попап добавления*/
+const profileAddButton = document.querySelector('.profile__add-button');/* кнопка в профайле открывает попап*/
+const popupAddCloseBtn = document.querySelector('.popup-add__close-btn');/*крестик закрытия попапа */
+const popupAdd = document.querySelector('.popup-add');/*сам попап добавления карточек */
+const popupAddForm = document.querySelector('.popup-add__form');/*форма попапа добавления карточек */
+const inputTitle = document.querySelector('.input-title');
+const inputLink = document.querySelector('.input-link');
+
+function handleAddButtonOpenClick() { /*открытие формы */
+    inputTitle.value = '';
+    inputLink.value = '';
+    popupAdd.classList.add('popup-add_opened');
+}
+
+function handleAddCloseBtnClick() { /*закрытие формы */
+    popupAdd.classList.remove('popup-add_opened');
+}
+
+function handleAddSubmit(event){ /*кнопка создать */
+    event.preventDefault();
+    handleAddCloseBtnClick();
+}
+
+profileAddButton.addEventListener('click', handleAddButtonOpenClick);
+popupAddCloseBtn.addEventListener('click', handleAddCloseBtnClick);
+popupAddForm.addEventListener('submit', handleAddSubmit);
+
+/* like */
+const cardsLike = document.querySelector('.cards__like');
+
+/*function handleCardsLikeOnClick() {
+    cardsLike.classList.add('cards__like_active');
+}
+cardsLike.addEventListener('click', handleCardsLikeOnClick);*/
+
 
 
 const initialCards = [
-    {
-        name: 'Каир',
-        link: 'https://source.unsplash.com/KUxBU4-T2cY'
-    },
-    {
-        name: 'Гиза',
-        link: 'https://source.unsplash.com/icn6l4iRwKA'
-    },
-    {
-        name: 'Александрия',
-        link: 'https://source.unsplash.com/zpmvpEXM_Qc'
-    },
-    {
-        name: 'Эль-Файюм',
-        link: 'https://source.unsplash.com/ZWP3r8rarN8'
-    },
-    {
-        name: 'Люксор',
-        link: 'https://source.unsplash.com/GNdp2Q4VZjw'
-    },
-    {
-        name: 'Шарм Эль Шейх',
-        link: 'https://source.unsplash.com/1kknM5mP50Y'
-    }
-]; 
-
-/*const initialCards = [
     {
         name: 'Архыз',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -86,24 +96,67 @@ const initialCards = [
         name: 'Байкал',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
-]; */
+];
 
+/*const initialCards = [
+    {
+        name: 'Каир',
+        link: 'https://source.unsplash.com/KUxBU4-T2cY'
+    },
+    {
+        name: 'Гиза',
+        link: 'https://source.unsplash.com/icn6l4iRwKA'
+    },
+    {
+        name: 'Александрия',
+        link: 'https://source.unsplash.com/zpmvpEXM_Qc'
+    },
+    {
+        name: 'Эль-Файюм',
+        link: 'https://source.unsplash.com/ZWP3r8rarN8'
+    },
+    {
+        name: 'Люксор',
+        link: 'https://source.unsplash.com/GNdp2Q4VZjw'
+    },
+    {
+        name: 'Шарм Эль Шейх',
+        link: 'https://source.unsplash.com/1kknM5mP50Y'
+    }
+];*/ 
+
+ 
 const listContainerElement = document.querySelector('.cards');
 
+
+const template = document.querySelector('.template');
+
 function renderList() {
-    let newcards = '';
+    let newCards = '';
 
-    newcards = initialCards.map(function(item) {
-        return `<li class="cards__item">
-                <a class="cards__image" target="_self" href="${item.link}"><img class="cards__image" alt="#" src="${item.link}?https://via.placeholder.com/280.png"></a>
-                <div class="cards__bottom">
-                <h3 class="cards__title">${item.name}</h3>
-                <button class="cards__like cards__like_active" type="button"><img alt="#" src="./images/like.svg"></button>
-                </div>
-                </li>`
+    newCards = initialCards.map(composeItem);
+    
+    listContainerElement.append(...newCards);
+}
 
-    }).join(' ');
-    listContainerElement.insertAdjacentHTML('afterbegin', newcards);
+function composeItem(item){
+    const newItem = template.content.cloneNode(true);
+    newItem.querySelector('.cards__title').textContent = item.name;
+    newItem.querySelector('.cards__img').src = item.link;
+    return newItem;
+}
 
+
+function bindAddItemListener() {
+    const popupAddBtn = document.querySelector('.popup-add__btn');
+    popupAddBtn.addEventListener('click', addNewItem);
+}
+
+function addNewItem() {
+        let inputText = inputTitle.value;
+        let inputRef = inputLink.value; 
+        let newItemCards = composeItem({name: inputText, link: inputRef});
+        listContainerElement.prepend(newItemCards);
 }
 renderList();
+bindAddItemListener();
