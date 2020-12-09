@@ -43,8 +43,6 @@ const inputTitle = document.querySelector('.input-title');
 const inputLink = document.querySelector('.input-link');
 
 function handleAddButtonOpenClick() { /*открытие формы */
-    inputTitle.value = '';
-    inputLink.value = '';
     popupAdd.classList.add('popup-add_opened');
 }
 
@@ -157,6 +155,8 @@ function addNewItem() {
         let inputText = inputTitle.value;
         let inputRef = inputLink.value; 
         let newItemCards = composeItem({name: inputText, link: inputRef});
+        inputTitle.value = '';
+        inputLink.value = '';
         listContainerElement.prepend(newItemCards);
 }
 
