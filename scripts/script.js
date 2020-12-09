@@ -59,13 +59,16 @@ profileAddButton.addEventListener('click', handleAddButtonOpenClick);
 popupAddCloseBtn.addEventListener('click', handleAddCloseBtnClick);
 popupAddForm.addEventListener('submit', handleAddSubmit);
 
-/* like */
-const cardsLike = document.querySelector('.cards__like');
+
 
 /*function handleCardsLikeOnClick() {
-    cardsLike.classList.add('cards__like_active');
-}
-cardsLike.addEventListener('click', handleCardsLikeOnClick);*/
+    debugger;
+    const cardsLike = document.querySelector('.cards__like');
+    cardsLike.classList.toggle('cards__like_active');
+    return cardsLike;
+    cardsLike.addEventListener('click', handleCardsLikeOnClick);
+}*/
+
 
 
 
@@ -125,8 +128,6 @@ const initialCards = [
 
  
 const listContainerElement = document.querySelector('.cards');
-
-
 const template = document.querySelector('.template');
 
 function renderList() {
@@ -143,6 +144,11 @@ function composeItem(item){
     newItem.querySelector('.cards__img').src = item.link;
     const cardsBtnRemove = newItem.querySelector('.cards__btn-remove');
     cardsBtnRemove.addEventListener('click', removeItem);
+
+    newItem.querySelector('.cards__like').addEventListener('click', function (evt) {
+        evt.target.classList.toggle('cards__like_active');
+    });
+
     return newItem;
 }
 
@@ -158,13 +164,33 @@ function addNewItem() {
         inputTitle.value = '';
         inputLink.value = '';
         listContainerElement.prepend(newItemCards);
+
+        /*let cardsLike = document.querySelector('.cards__like')
+        cardsLike.addEventListener('click', function (evt) {
+            evt.target.classList.toggle('cards__like_active');
+        });*/
 }
 
+/*function addLike(evt){
+    let cardsLike = document.querySelector('.cards__like');
+     cardsLike = evt.target.classList.toggle('cards__like_active');
+}*/
+
 function removeItem(event){
-    const targetElement = event.target;
-    const targetItem = targetElement.closest('.cards__item');
+    /*const targetElement = event.target;
+    const targetItem = targetElement.closest('.cards__item');*/
+    const targetItem = event.target.closest('.cards__item');
     targetItem.remove();
 }
+
+/* like */
+/*let cardsBtnLike = document.querySelector('.cards__btn-like');
+let cardsLike = document.querySelector('.cards__like');
+*/
+
+
+
+
 
 renderList();
 bindAddItemListener();
