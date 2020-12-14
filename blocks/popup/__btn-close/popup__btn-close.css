@@ -1,4 +1,4 @@
-.popup__close-btn {
+.popup__btn-close {
     position: absolute;
     right: -40px;
     top: -40px;
@@ -8,7 +8,7 @@
     cursor: pointer;
 }
 
-.popup__close-btn:hover {
+.popup__btn-close:hover {
     opacity: 0.6;
     transition : all 1s ease;
     -webkit-transition: all 1s ease;
@@ -16,7 +16,7 @@
     -moz-transition: all 1s ease;
 }
 
-.popup__close-btn:before, .popup__close-btn:after {
+.popup__btn-close:before, .popup__btn-close:after {
     position: absolute;
     left: -20px;
     top: 0;
@@ -26,16 +26,16 @@
     background-color: #fff;
 }
 
-.popup__close-btn:before {
+.popup__btn-close:before {
     transform: rotate(45deg);
 }
 
-.popup__close-btn:after {
+.popup__btn-close:after {
     transform: rotate(-45deg);
 }
 
 @media screen and (max-width: 540px) {
-    .popup__close-btn:before, .popup__close-btn:after {
+    .popup__btn-close:before, .popup__btn-close:after {
         left: -55px;
         top: 0;
         width: 2px;

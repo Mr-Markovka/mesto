@@ -7,7 +7,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%); /* Для Firefox */
+    -moz-transform: translate(-50%, -50%); /* Для Firefox*/
     -ms-transform: translate(-50%, -50%); /* Для IE */
     -webkit-transform: translate(-50%, -50%); /* Для Safari, Chrome, iOS */
     -o-transform: translate(-50%, -50%); /* Для Opera */
