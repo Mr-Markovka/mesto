@@ -9,13 +9,16 @@
 
 <body class="body">
     <div class="page">
-        
+
+<!-- header-->
         <header class="header">
             <a class="header__link" target="_self" href="#"><img class="header__logo" alt="Логотип место Россия." src="./images/logo.svg"></a>
         </header>
 
+<!-- main-->
         <main class="content">
 
+<!-- profile-->
             <section class="profile">
                 <img class="profile__avatar" alt="фото автора." src="./images/myPhoto.jpg">
 
@@ -26,31 +29,25 @@
                     </div>
                     <p class="profile__info-about">Исследователь Египта</p>
                 </div>
+
                 <button class="profile__add-button" type="button"><img class="profile__add-button-vector" alt="#" src="./images/addButtonVector.svg"></button>
             </section>
 
+<!-- elements-->
             <section class="elements">
                 <ul class="cards">
-
                 </ul>
             </section>
         </main>
 
+<!-- footer-->
         <footer class="footer">
             <p class="footer__author">&copy;2020.Mesto Russia</p>
         </footer>
 
-        <!--<template class="template">
-            <li class="cards__item">
-                <a class="cards__image" target="_self" href=""><img class="cards__img" alt="#" src="${item.link}?https://via.placeholder.com/280.png"></a>
-                <div class="cards__bottom">
-                    <h3 class="cards__title"></h3>
-                    <button class="cards__like" type="button"></button>
-                </div>
-                </li>
-        </template>-->
+<!-- template-->
         <template class="template">
-            <li class="cards__item">
+            <li class="cards__item card">
                 <button class="cards__btn-remove" type="button"></button>
                 <img class="cards__img" alt="#" src="./">
                 <div class="cards__bottom">
@@ -60,28 +57,32 @@
             </li>
         </template>
 
-
-        <section class="popup">
-            <form class="popup__form" name="form">
-                <button class="popup__close-btn" type="button"></button>
-                <h2 class="popup__header">Редактировать профиль</h2>
+<!-- popups-->
+        <section class="popup popup-profile">
+            <form class="popup__form popup-profile__form" name="form">
+                <button class="popup__btn-close popup-profile__btn-close" type="button"></button>
+                <h2 class="popup__header popup-profile__header">Редактировать профиль</h2>
                 <input class="popup__input input-name" type="text" placeholder="Имя" name="name">
                 <input class="popup__input input-about" type="text" placeholder="О себе" name="about">
-                <button class="popup__btn popup__btn-add" type="submit">Сохранить</button>
+                <button class="popup__btn-submit popup-profile__btn-submit" type="submit">Сохранить</button>
             </form>
         </section>
-        <section class="popup-add">
-            <form class="popup-add__form" name="form">
-                <button class="popup-add__close-btn" type="button"></button>
-                <h2 class="popup-add__header">Новое место</h2>
-                <input class="popup-add__input input-title" type="text" placeholder="Название" name="title">
-                <input class="popup-add__input input-link" type="text" placeholder="Ссылка на картинку" name="link">
-                <button class="popup-add__btn popup-add__btn-add" type="submit">Создать</button>
+
+        <section class="popup popup-add">
+            <form class="popup__form popup-add__form" name="form">
+                <button class="popup__btn-close popup-add__btn-close" type="button"></button>
+                <h2 class="popup__header popup-add__header">Новое место</h2>
+                <input class="popup__input popup-add__input input-title" type="text" placeholder="Название" name="title">
+                <input class="popup__input popup-add__input input-link" type="text" placeholder="Ссылка на картинку" name="link">
+                <button class="popup__btn-submit popup-add__btn-submit" type="submit">Создать</button>
             </form>
         </section>
-        <section class="popup-img">
-            <div class="popup-img__window">
-                <button class="popup-img__close-btn" type="button"></button>
+
+        <section class="popup popup-img">
+            <div class="popup__img-window">
+                <button class="popup__btn-close popup-img__btn-close" type="button"></button>
+                <img class="popup__image" alt="#" src="./">
+                <p class="popup__alt"></p>
             </div>
         </section>
         
