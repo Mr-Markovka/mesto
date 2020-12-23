@@ -1,5 +1,4 @@
 .popup__input {
-    font-family: inherit;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -19,6 +18,10 @@
     outline-color: #2f80ed; /* цвет обводки */
     outline-style: solid;/* стиль линии */
     outline-width: 3px; /* толщина обводки*/
+}
+
+.popup__input:invalid:not(:focus):not(:placeholder-shown) {
+    border-bottom: 1px solid #ff0000;
 }
 
 @media screen and (max-width: 540px) {

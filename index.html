@@ -48,21 +48,33 @@
 
 <!-- popups-->
     <section class="popup popup-profile">
-        <form class="popup__form popup-profile__form" name="form">
+        <form class="popup__form popup-profile__form" name="form" novalidate>
             <button class="popup__btn-close popup-profile__btn-close" type="button"></button>
             <h2 class="popup__header popup-profile__header">Редактировать профиль</h2>
-            <input class="popup__input input-name" type="text" placeholder="Имя" name="name" required>
-            <input class="popup__input input-about" type="text" placeholder="О себе" name="about" required>
+            <input id="input-name" class="popup__input input-name" name="name" type="text" placeholder="Имя" minlength="2" maxlength="40" autocomplete="off" required>
+            <label class="label">
+                <span id="input-name-error" class="error label__span label__span_popup-profile"></span>
+            </label>
+            <input id="input-about" class="popup__input input-about" name="about" type="text" placeholder="О себе" minlength="2" maxlength="200" autocomplete="off" required>
+            <label class="label">
+                <span id="input-about-error" class="error label__span label__span_popup-profile"></span>
+            </label>
             <button class="popup__btn-submit popup-profile__btn-submit" type="submit">Сохранить</button>
-        </form>
+        </form> 
     </section>
 
     <section class="popup popup-add">
-        <form class="popup__form popup-add__form" name="form">
+        <form class="popup__form popup-add__form" name="form" novalidate>
             <button class="popup__btn-close popup-add__btn-close" type="button"></button>
             <h2 class="popup__header popup-add__header">Новое место</h2>
-            <input class="popup__input popup-add__input input-title" type="text" placeholder="Название" name="title" required>
-            <input class="popup__input popup-add__input input-link" type="url" placeholder="Ссылка на картинку" name="link" required>
+            <input id="input-title" class="popup__input popup-add__input input-title" name="title" type="text" minlength="2" maxlength="30" placeholder="Название" autocomplete="off" required>
+            <label class="label">
+                <span id="input-title-error" class="error label__span"></span>
+            </label>
+            <input id="input-link" class="popup__input popup-add__input input-link" name="link" type="url" placeholder="Ссылка на картинку" autocomplete="off" required>
+            <label class="label">
+                <span id="input-link-error" class="error label__span"></span>
+            </label>
             <button class="popup__btn-submit popup-add__btn-submit" type="submit">Создать</button>
         </form>
     </section>
@@ -89,5 +101,6 @@
 
 <!-- script-->
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/validate.js"></script>  
 </body>
 </html>
