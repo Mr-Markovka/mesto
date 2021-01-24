@@ -1,7 +1,6 @@
 import Card from './Card.js';  //7
 import { initialCards } from './initial-cards.js';
-import { validationConfig, FormValidator } from './FormValidator.js';
-
+import { FormValidator } from './FormValidator.js';
 
 const profileOpenButton = document.querySelector('.profile__open-button');  /* кнопка открывает попап-профайл*/
 const profileAddButton = document.querySelector('.profile__add-button');    /* кнопка в профайле открывает попап для карточек*/
@@ -23,6 +22,8 @@ const popupAddBtnClose = document.querySelector('.popup-add__btn-close');   /*к
 const popupAddBtnSubmit = document.querySelector('.popup-add__btn-submit');     /* кнопка submit попапа-карточки*/
 const popupAddForm = document.querySelector('.popup-add__form');             /* форма попапа-карточки**/
 
+const cardsSection = document.querySelector('.cards');
+
 const popupImg = document.querySelector('.popup-img');                      /* попап-img*/
 const popupImgBtnClose = document.querySelector('.popup-img__btn-close');   /*крестик закрытия попап-img*/
 
@@ -39,6 +40,16 @@ const inputTitle = document.querySelector('.input-title');  /*попап-кар�
 const inputLink = document.querySelector('.input-link');    /*попап-карточки*/
 
 const root = document.querySelector('.root'); /* общий для закрытия попапов */
+
+const validationConfig = {
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__btn-submit',
+    inactiveButtonClass: 'popup__btn-submit_invalid',
+    inputErrorClass: 'popup__input_invalid',
+    errorClass: 'popup__error_visible',
+    error: '.error',
+    popupInput: '.popup__input'
+};
 
 
 const validationFormProfile = new FormValidator(validationConfig, popupProfileForm);
@@ -88,9 +99,8 @@ function addNewItem(event) {     /*создание новой карточки 
     const inputText = inputTitle.value;
     const inputRef = inputLink.value;
     const cardNew = new Card({ name: inputText, link: inputRef }, '.template', openImage).generateCard();
-    console.log(cardNew);
     popupAddForm.reset();
-    document.querySelector('.cards').prepend(cardNew);
+    cardsSection.prepend(cardNew);
     closePopup(popupAdd);
 }
 
@@ -103,16 +113,16 @@ function openImage(item) {   /*открытие попап-img*/
 
 initialCards.forEach((itemCard) => {
     const card = new Card(itemCard, '.template', openImage).generateCard();
-    document.querySelector('.cards').append(card);
+    cardsSection.append(card);
 
 });
 
 profileOpenButton.addEventListener('click', function () {  /*попап-профайл открытие и отображение информации*/
     inputName.value = profileInfoName.textContent;
     inputAbout.value = profileInfoAbout.textContent;
-    openPopup(popupProfile);
-    validationFormProfile.setButtonState(popupProfileBtnSubmit, true);
+    validationFormProfile.setButtonState(true);
     validationFormProfile.checkError();
+    openPopup(popupProfile);
 });
 
 popupProfileForm.addEventListener('submit', handleFormSubmit); /* сабмит попап-профайл */
@@ -122,10 +132,10 @@ popupProfileBtnClose.addEventListener('click', function () {  /* закрыти�
 });
 
 profileAddButton.addEventListener('click', function () {  /* открытие попап-карточки*/
-    openPopup(popupAdd);
-    document.querySelector('.popup-add__form').reset();
-    validationFormAdd.setButtonState(popupAddBtnSubmit, false);
+    popupAddForm.reset();
+    validationFormAdd.setButtonState(false);
     validationFormAdd.checkError();
+    openPopup(popupAdd);
 });
 
 popupAddBtnClose.addEventListener('click', function () {  /* закрытие попап-карточки*/

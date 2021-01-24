@@ -35,7 +35,7 @@ export default class Card {
         });
 
         this._card.querySelector('.cards__btn-remove').addEventListener('click', () => {
-            this._deleteClickHandler()
+            this._deleteCard()
         });
 
         this._card.querySelector('.cards__img').addEventListener('click', () => {
@@ -47,8 +47,9 @@ export default class Card {
         this._card.querySelector('.cards__like').classList.toggle('cards__like_active');
     }
 
-    _deleteClickHandler = () => {
+    _deleteCard = () => {
         this._card.remove();
+        this._card = null;
     }
 
 }
