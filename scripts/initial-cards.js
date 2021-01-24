@@ -1,26 +1,27 @@
-const initialCards = [
+export const initialCards = [
     {
-        name: 'Каир',
-        link: 'https://source.unsplash.com/KUxBU4-T2cY'
+        name: 'Архыз',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
     },
     {
-        name: 'Гиза',
-        link: 'https://source.unsplash.com/icn6l4iRwKA'
+        name: 'Челябинская область',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
     },
     {
-        name: 'Александрия',
-        link: 'https://source.unsplash.com/zpmvpEXM_Qc'
+        name: 'Иваново',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
     },
     {
-        name: 'Эль-Файюм',
-        link: 'https://source.unsplash.com/ZWP3r8rarN8'
+        name: 'Камчатка',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
     },
     {
-        name: 'Люксор',
-        link: 'https://source.unsplash.com/GNdp2Q4VZjw'
+        name: 'Холмогорский район',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
     },
     {
-        name: 'Шарм Эль Шейх',
-        link: 'https://source.unsplash.com/1kknM5mP50Y'
+        name: 'Байкал',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
+
