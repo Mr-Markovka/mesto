@@ -31,9 +31,9 @@ export class FormValidator {
 
     checkInputValidity(form, input, config) {
         if (input.validity.valid) {
-            this._hideError(form, input, this._config);
+            this._hideError(this._form, input, this._config);
         } else {
-            this._showError(form, input, this._config);
+            this._showError(this._form, input, this._config);
         }
     }
 
@@ -48,18 +48,16 @@ export class FormValidator {
     }
 
     _setEventListener(form) {
-        const inputList = this._form.querySelectorAll(this._config.inputSelector);
-
-        inputList.forEach(input => {
+        this._input.forEach(input => {
             input.addEventListener('input', (evt) => {
-                this.checkInputValidity(form, input, this._config);
-                this.setButtonState(form.checkValidity());
+                this.checkInputValidity(this._form, input, this._config);
+                this.setButtonState(this._form.checkValidity());
             });
         });
     }
 
     enableValidation() {
-        this._setEventListener(this._form, this._config);
+        this._setEventListener(this._form);
 
         this._form.addEventListener('submit', (evt) => {
             evt.preventDefault();

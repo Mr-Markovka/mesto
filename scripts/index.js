@@ -42,7 +42,6 @@ const inputLink = document.querySelector('.input-link');    /*попап-кар�
 const root = document.querySelector('.root'); /* общий для закрытия попапов */
 
 const validationConfig = {
-    inputSelector: '.popup__input',
     submitButtonSelector: '.popup__btn-submit',
     inactiveButtonClass: 'popup__btn-submit_invalid',
     inputErrorClass: 'popup__input_invalid',
