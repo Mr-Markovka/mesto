@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css">
+
 </head>
 
 <body class="body root">
@@ -14,7 +14,7 @@
         <!-- header-->
         <header class="header">
             <a class="header__link" target="_self" href="#"><img class="header__logo" alt="Логотип место Россия."
-                    src="./images/logo.svg"></a>
+                    src="<%=require('./images/logo.svg')%>"></a>
         </header>
 
         <!-- main-->
@@ -22,19 +22,19 @@
 
             <!-- profile-->
             <section class="profile">
-                <img class="profile__avatar" alt="фото автора." src="./images/myPhoto.jpg">
+                <img class="profile__avatar" alt="фото автора." src="<%=require('./images/myPhoto.jpg')%>">
 
                 <div class="profile__info">
                     <div class="profile__group">
                         <h1 class="profile__info-name">Анастасия Шилина</h1>
                         <button class="profile__open-button" type="button"><img alt="#"
-                                src="./images/editButton.svg"></button>
+                                src="<%=require('./images/editButton.svg')%>"></button>
                     </div>
                     <p class="profile__info-about">По родным просторам</p>
                 </div>
 
                 <button class="profile__add-button" type="button"><img class="profile__add-button-vector" alt="#"
-                        src="./images/addButtonVector.svg"></button>
+                        src="<%=require('./images/addButtonVector.svg')%>"></button>
             </section>
 
             <!-- elements-->

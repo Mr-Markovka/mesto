@@ -1,11 +1,13 @@
-import Card from './Card.js';  //7
-import Popup from './Popup.js';
-import { initialCards } from './initial-cards.js';
-import Section from './Section.js';
-import { FormValidator } from './FormValidator.js';
-import PopupWithImage from './PopupWithImage.js';
-import UserInfo from './UserInfo.js';
-import PopupWithForm from './PopupWithForm.js';
+import './pages/index.css';
+
+import Card from './scripts/Card.js';  //7
+import Popup from './scripts/Popup.js';
+import { initialCards } from './scripts/initial-cards.js';
+import Section from './scripts/Section.js';
+import { FormValidator } from './scripts/FormValidator.js';
+import PopupWithImage from './scripts/PopupWithImage.js';
+import UserInfo from './scripts/UserInfo.js';
+import PopupWithForm from './scripts/PopupWithForm.js';
 
 const profileOpenButton = document.querySelector('.profile__open-button');  /* кнопка открывает попап-профайл*/
 const profileAddButton = document.querySelector('.profile__add-button');    /* кнопка в профайле открывает попап для карточек*/
