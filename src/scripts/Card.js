@@ -1,11 +1,3 @@
-/*
-Преобразуйте класс Card
-Свяжите класс Card c попапом. 
-Сделайте так, чтобы Card принимал в конструктор функцию handleCardClick. 
-Эта функция должна открывать попап с картинкой при клике на карточку.
- */
-
-
 export default class Card {
     constructor(data, handleCardClick, templateSelector) {
         this._name = data.name;
@@ -28,12 +20,12 @@ export default class Card {
 
     generateCard() {
         this._card = this._getTemplate();
-        this._setEventListeners();
+        this._cardImage = this._card.querySelector('.cards__img');
 
-        this._card.querySelector('.cards__img').alt = this._name;
-        this._card.querySelector('.cards__img').src = this._link;
+        this._cardImage.alt = this._name;
+        this._cardImage.src = this._link;
         this._card.querySelector('.cards__title').textContent = this._title;
-
+        this._setEventListeners();
         return this._card;
     }
 
@@ -46,7 +38,7 @@ export default class Card {
             this._deleteCard();
         });
 
-        this._card.querySelector('.cards__img').addEventListener('click', () => {
+        this._cardImage.addEventListener('click', () => {
             this._handleCardClick({ name: this._name, link: this._link });
         });
     }
@@ -59,14 +51,5 @@ export default class Card {
         this._card.remove();
         this._card = null;
     }
-    /*     _openImage() {
-            
-            const popup = new PopupWithImage(
-                this._link,
-                this._title,
-                this._name,
-                '.popup-img'
-            );
-            popup.open();
-        } */
+
 }

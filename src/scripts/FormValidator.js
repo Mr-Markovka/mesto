@@ -2,8 +2,8 @@ export class FormValidator {
     constructor(config, form) {
         this._config = config;
         this._form = form;
-        this._button = this._form.querySelector('.popup__btn-submit');
-        this._input = this._form.querySelectorAll(this._config.popupInput);
+        this._button = this._form.querySelector(this._config.submitButtonSelector);
+        this._inputs = this._form.querySelectorAll(this._config.popupInput);
         this._errors = this._form.querySelectorAll(this._config.error);
     }
 
@@ -12,28 +12,28 @@ export class FormValidator {
             e.textContent = "";
         });
 
-        this._input.forEach(e => {
+        this._inputs.forEach(e => {
             e.classList.remove(this._config.inputErrorClass);
         });
     }
 
-    _showError(form, input) {
+    _showError(input) {
         const error = this._form.querySelector(`#${input.id}-error`);
         error.textContent = input.validationMessage;
         input.classList.add(this._config.inputErrorClass);
     }
 
-    _hideError(form, input) {
+    _hideError(input) {
         const error = this._form.querySelector(`#${input.id}-error`);
         error.textContent = "";
         input.classList.remove(this._config.inputErrorClass);
     }
 
-    checkInputValidity(form, input, config) {
+    checkInputValidity(input) {
         if (input.validity.valid) {
-            this._hideError(this._form, input, this._config);
+            this._hideError(input);
         } else {
-            this._showError(this._form, input, this._config);
+            this._showError(input);
         }
     }
 
@@ -47,17 +47,17 @@ export class FormValidator {
         }
     }
 
-    _setEventListener(form) {
-        this._input.forEach(input => {
+    _setEventListener() {
+        this._inputs.forEach(input => {
             input.addEventListener('input', (evt) => {
-                this.checkInputValidity(this._form, input, this._config);
+                this.checkInputValidity(input);
                 this.setButtonState(this._form.checkValidity());
             });
         });
     }
 
     enableValidation() {
-        this._setEventListener(this._form);
+        this._setEventListener();
 
         this._form.addEventListener('submit', (evt) => {
             evt.preventDefault();

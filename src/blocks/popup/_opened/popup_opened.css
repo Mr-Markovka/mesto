@@ -1,5 +1,5 @@
 .popup_opened {
-    display: flex;
+    display: inline-flex;
     /*плавное появление*/
     visibility: visible;
     opacity: 1;

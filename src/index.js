@@ -27,6 +27,7 @@ const validationConfig = {
     popupInput: '.popup__input'
 };
 
+
 /*6 карточек */
 const cardsSection = new Section({
     items: initialCards,
@@ -48,8 +49,7 @@ const popupImage = new PopupWithImage('.popup-img');
 const popupCardForm = new PopupWithForm({
     popupSelector: '.popup-add',
     handleFormSubmit: (data) => {
-        console.log(data)
-        const card = new Card(data, handleCardClick, '.template').generateCard();
+        const card = createCard(data);
         cardsSection.addItem(card, 'begin')
     }
 });
@@ -68,9 +68,15 @@ function handleCardClick(data) {
     popupImage.open(data)
 }
 
+function createCard(item) {
+    const cardInstance = new Card(item, handleCardClick, '.template');
+    const card = cardInstance.generateCard();
+    return card;
+}
+
 /*6 карточек */
 function renderCards(itemCard) {
-    const newCard = new Card(itemCard, handleCardClick, '.template').generateCard();
+    const newCard = createCard(itemCard);
     cardsSection.addItem(newCard);
 }
 
