@@ -69,7 +69,7 @@ api.getAllInfo()
         userInfo.setUserInfo(dataUser);
         userInfo.updateUserInfo();
         userId = userInfo.getMyId();
-        console.log(userId);
+
     })
     .catch(err => console.log(err))
 
@@ -94,7 +94,6 @@ const popupCardForm = new PopupWithForm({
     handleFormSubmit: (data) => {
         api.addCard(data)
             .then((resData) => {
-                // console.log(resData);
                 const card = createCard(resData);
                 cardsSection.addItem(card, 'begin');
             })
@@ -128,12 +127,10 @@ function createCard(dataCard) {
             });
         }
         , () => {
-            console.log('что ты есть ', card);
             if (cardInstance.isCardLiked()) {
 
                 api.deleteLike(dataCard._id)
                     .then(res => {
-                        console.log('resdeleteLike', res);
 
                         cardInstance.toggleLike();
                         cardInstance.setCardLiked(res);
@@ -142,8 +139,6 @@ function createCard(dataCard) {
             } else {
                 api.putLike(dataCard._id)
                     .then(res => {
-                        console.log('resputLike', res);
-
                         cardInstance.toggleLike();
                         cardInstance.setCardLiked(res);
                     })
@@ -157,25 +152,6 @@ function createCard(dataCard) {
     return card;
 }
 
-// function handleCardLike(data) {
-//     console.log(data);
-//     if (card.isCardLiked()) {
-//         api.deleteLike(data)
-//             .then(res => {
-//                 console.log(res);
-//                 card.setCardLiked(res);
-//             })
-//             .catch(err => console.log(err));
-//     } else {
-//         api.putLike(data)
-//             .then(res => {
-//                 console.log(res);
-//                 card.setCardLiked(res);
-//             })
-//             .catch(err => console.log(err));
-//     }
-
-// }
 /*попап-картинка*/
 function handleCardClick(data) {
     popupImage.open(data)
@@ -198,12 +174,6 @@ profileAddButton.addEventListener('click', function () {
     validationFormAdd.checkError();
     popupCardForm.open();
 });
-
-/* открытие попап-удаления*/
-// cardsBtnRemove.addEventListener('click', () => {
-//     popupConfirm.open();
-// });
-
 
 validationFormAdd.enableValidation();
 validationFormProfile.enableValidation();
@@ -265,13 +235,3 @@ userInfo.updateUserInfo();
 
 // /*-----------------------------------------------------------------------*/
 
-
-
-// /*попап-профайл-форма */                                 удалить
-// const popupEditForm = new PopupWithForm({
-//     popupSelector: '.popup-profile',
-//     handleFormSubmit: (data) => {
-//         userInfo.setUserInfo(data.name, data.about);
-//         userInfo.updateUserInfo();
-//     }
-// });
