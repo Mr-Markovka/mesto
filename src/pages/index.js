@@ -129,18 +129,23 @@ function createCard(dataCard) {
         }
         , () => {
             console.log('что ты есть ', card);
-            if (card.isCardLiked()) {
-                console.log('что ты  ', dataCard._id);
+            if (cardInstance.isCardLiked()) {
+
                 api.deleteLike(dataCard._id)
                     .then(res => {
-                        card.setCardLiked(res);
+                        console.log('resdeleteLike', res);
+
+                        cardInstance.toggleLike();
+                        cardInstance.setCardLiked(res);
                     })
                     .catch(err => console.log(err));
             } else {
                 api.putLike(dataCard._id)
                     .then(res => {
-                        console.log(res);
-                        card.setCardLiked(res);
+                        console.log('resputLike', res);
+
+                        cardInstance.toggleLike();
+                        cardInstance.setCardLiked(res);
                     })
                     .catch(err => console.log(err));
             }
