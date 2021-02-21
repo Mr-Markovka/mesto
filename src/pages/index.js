@@ -127,21 +127,20 @@ function createCard(dataCard) {
                     })
             });
         }
-        , (num) => {
+        , () => {
+            console.log('что ты есть ', card);
             if (card.isCardLiked()) {
-                api.putLike(data)
+                console.log('что ты  ', dataCard._id);
+                api.deleteLike(dataCard._id)
                     .then(res => {
-                        console.log(res);
-                        // card.setCardLiked(res);
-                        card.toggleLike();
+                        card.setCardLiked(res);
                     })
                     .catch(err => console.log(err));
             } else {
-                api.deleteLike(data)
+                api.putLike(dataCard._id)
                     .then(res => {
                         console.log(res);
-                        // card.setCardLiked(res);
-                        card.toggleLike();
+                        card.setCardLiked(res);
                     })
                     .catch(err => console.log(err));
             }

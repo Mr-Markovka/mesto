@@ -1,14 +1,15 @@
 
 export default class Card {
-    constructor({ name, link, likes, owner, _id, currentId }, handleCardClick, templateSelector, handleTrashClick, handleCardLike) {
-        this._name = name;
-        this._link = link;
-        this._title = name;
-        this._likes = likes;
-        this._likesNum = data._likesNum;
-        this._cardId = _id;
-        this._currentId = currentId;
-        this._idOwner = owner._id;
+    constructor({ data }, handleCardClick, templateSelector, handleTrashClick, handleCardLike) {
+        this._name = data.name;
+        this._link = data.link;
+        this._title = data.name;
+        this._likes = data.likes;
+        this._userId = data.userId;
+        // this._likesNum = data._likesNum;
+        this._cardId = data._id;
+        this._currentId = data._currentId;
+        this._idOwner = data.owner._id;
         this._templateSelector = templateSelector;
         this._card = null;
         this._handleCardClick = handleCardClick;
@@ -39,12 +40,12 @@ export default class Card {
         this._cardImage.src = this._link;
         this._card.querySelector('.cards__title').textContent = this._title;
 
-        // this._likesNum.textContent = this._likes.length;
-        // this.likes.forEach((item) => {
-        //     if (item._id === this._currentId) {
-        //         this._cardLike.classList.add('cards__like_active');
-        //     }
-        // })
+        this._likesNum.textContent = this._likes.length;
+        this._likes.forEach((item) => {
+            if (item._id === this._userId) {
+                this._cardLike.classList.add('cards__like_active');
+            }
+        })
 
         this._checkId();
         this.setCardLiked(this._num);
@@ -54,7 +55,7 @@ export default class Card {
 
     _setEventListeners() {
         this._cardLike.addEventListener('click', () => {
-            this._handleCardLike(_toggleLike());
+            this._handleCardLike();
         });
 
         this._cardsBtnRemove.addEventListener('click', () => {
@@ -83,22 +84,19 @@ export default class Card {
         }
     }
 
-    // isCardLiked() {
-    //     const isLiked = this._cardLike.classList.contains('cards__like_active');
-    //     return isLiked;
-    // }
+    isCardLiked() {
+        const isLiked = this._cardLike.classList.contains('cards__like_active') ? true : false;
+        return isLiked;
+    }
 
-    // setCardLiked(num) {
-    //     console.log(num);
-    //     this._num = num;
+    setCardLiked() {
 
-
-    //     if (this.isCardLiked()) {
-    //         this._cardLike.classList.add('cards__like_active');
-    //     } else {
-    //         this._cardLike.classList.remove('cards__like_active');
-    //     }
-    // }
+        if (this.isCardLiked()) {
+            this._cardLike.classList.add('cards__like_active');
+        } else {
+            this._cardLike.classList.remove('cards__like_active');
+        }
+    }
     // /************************************************** */
     // likesCounter(counter) {
     //     this._likesNum.textContent = counter;
