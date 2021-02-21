@@ -22,8 +22,11 @@
 
             <!-- profile-->
             <section class="profile">
-                <img class="profile__avatar" alt="фото автора." src="<%=require('./images/myPhoto.jpg')%>">
-
+                <div class="profile__avatar-container">
+                    <img class="profile__avatar" alt="фото автора." src="<%=require('./images/camelFace.jpg')%>">
+                    <button class="profile__avatar-button" type="button"><img alt="#"
+                            src="<%=require('./images/editAvatarButton.svg')%>"></button>
+                </div>
                 <div class="profile__info">
                     <div class="profile__group">
                         <h1 class="profile__info-name">Анастасия Шилина</h1>
@@ -69,6 +72,20 @@
         </form>
     </section>
 
+    <section class="popup popup-avatar">
+        <form class="popup__form popup-avatar__form" name="form" novalidate>
+            <button class="popup__btn-close popup-avatar__btn-close" type="button"></button>
+            <h2 class="popup__header popup-avatar__header">Обновить аватар</h2>
+
+            <input id="input-link" class="popup__input popup-avatar__input input-link" name="link" type="url"
+                placeholder="Ссылка на аватар" autocomplete="off" required>
+            <label class="label">
+                <span id="input-link-error" class="error label__span"></span>
+            </label>
+            <button class="popup__btn-submit popup-avatar__btn-submit" type="submit">Сохранить</button>
+        </form>
+    </section>
+
     <section class="popup popup-add">
         <form class="popup__form popup-add__form" name="form" novalidate>
             <button class="popup__btn-close popup-add__btn-close" type="button"></button>
@@ -87,6 +104,15 @@
         </form>
     </section>
 
+    <section class="popup popup-confirm">
+        <form class="popup__form">
+            <button class="popup__btn-close popup-confirm__btn-close" type="button"></button>
+            <h2 class="popup__header popup-confirm__header">Вы уверены?</h2>
+            <button class="popup__btn-submit popup-confirm__btn-submit" type="submit">Да</button>
+        </form>
+
+    </section>
+
     <section class="popup popup-img">
         <div class="popup__img-window">
             <button class="popup__btn-close popup-img__btn-close" type="button"></button>
@@ -102,7 +128,11 @@
             <img class="cards__img" alt="#" src="./">
             <div class="cards__bottom">
                 <h3 class="cards__title"></h3>
-                <button class="cards__btn-like cards__like" type="button"></button>
+                <div class="cards__like-group">
+                    <button class="cards__btn-like cards__like" type="button"></button>
+                    <p class="cards__number"></p>
+                </div>
+
             </div>
         </li>
     </template>

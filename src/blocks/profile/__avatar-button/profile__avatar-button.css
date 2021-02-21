@@ -1,0 +1,22 @@
+.profile__avatar-button {
+    display: none;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%); /* Для Firefox*/
+    -ms-transform: translate(-50%, -50%); /* Для IE */
+    -webkit-transform: translate(-50%, -50%); /* Для Safari, Chrome, iOS */
+    -o-transform: translate(-50%, -50%); /* Для Opera */
+}
+
+.profile__avatar-button:hover{
+    /* display: inline-flex;
+    visibility: visible;
+    opacity: 1; */
+}
