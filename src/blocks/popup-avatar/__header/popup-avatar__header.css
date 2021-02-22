@@ -1,3 +1,8 @@
-.popup-avatar__header {
-    
+.popup-avatar__header { 
+}
+
+@media screen and (max-width: 540px) {
+    .popup-avatar__header {
+        margin: 25px auto 38px auto;
+    }
 }

@@ -12,13 +12,14 @@ export default class UserInfo {
         return {
             name: this._name,
             about: this._about,
-            // avatar: this._avatar
+            avatar: this._avatar
         };
     }
+
     updateUserInfo() {
         this._nameElem.textContent = this._name;
         this._aboutElem.textContent = this._about;
-        // this._avatarElem.src = this._avatar;
+        this._avatarElem.src = this._avatar;
     }
     getMyId() {
         return this._id;

@@ -25,6 +25,8 @@ export const initialCards = [
     }
 ];
 
+//avatar https://source.unsplash.com/zbc2SOXfpGk
+
 // export const initialCards = [
 //     {
 //         name: 'Архыз',
@@ -51,6 +53,8 @@ export const initialCards = [
 //         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
 //     }
 // ];
+
+
 // export const initialCards = [
 //     {
 //         name: 'Каир',

@@ -19,14 +19,6 @@ export default class Section {
         this._container.innerHTML = '';
     }
 
-    // renderItems() {
-    //     this.clear();
-
-    //     this._renderedItems.forEach((itemCard) => {
-    //         this._renderer(itemCard);
-    //     });
-    // }
-
     renderItems(items) {
         this.clear();
 
