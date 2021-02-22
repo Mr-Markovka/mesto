@@ -6,17 +6,15 @@ export default class Card {
         this._title = data.name;
         this._likes = data.likes;
         this._userId = data.userId;
-        // this._likesNum = data._likesNum;
         this._cardId = data._id;
-        this._currentId = data._currentId;
+        this._currentId = data.currentId;
         this._idOwner = data.owner._id;
         this._templateSelector = templateSelector;
         this._card = null;
         this._handleCardClick = handleCardClick;
         this._handleTrashClick = handleTrashClick;
         this._handleCardLike = handleCardLike;
-        // this._removeLike = removeLike;
-        // this._addLike = addLike;
+
     }
 
     _getTemplate() {
@@ -42,12 +40,7 @@ export default class Card {
 
         this._likesNum.textContent = this._likes.length;
 
-        this._likes.forEach((item) => {
-            if (item._id === this._userId) {
-                this._cardLike.classList.add('cards__like_active');
-            }
-        })
-
+        this._updateCardLiked();
         this._checkId();
         this._setEventListeners();
         return this._card;
@@ -55,7 +48,7 @@ export default class Card {
 
     _setEventListeners() {
         this._cardLike.addEventListener('click', () => {
-            this._handleCardLike();
+            this._handleCardLike(this._num);
         });
 
         this._cardsBtnRemove.addEventListener('click', () => {
@@ -65,13 +58,7 @@ export default class Card {
         this._cardImage.addEventListener('click', () => {
             this._handleCardClick({ name: this._name, link: this._link, likes: this._likes });
         });
-
     }
-
-    toggleLike() {
-        this._cardLike.classList.toggle('cards__like_active');
-    }
-
 
     _deleteCard() {
         this._card.remove();
@@ -85,11 +72,11 @@ export default class Card {
     }
 
     isCardLiked() {
-        const isLiked = this._cardLike.classList.contains('cards__like_active') ? true : false;
-        return isLiked;
+        return Boolean(this._likes.find(item => item._id === this._currentId));
     }
 
-    setCardLiked() {
+    _updateCardLiked() {
+        this._likesNum.textContent = this._likes.length;
 
         if (this.isCardLiked()) {
             this._cardLike.classList.add('cards__like_active');
@@ -98,6 +85,10 @@ export default class Card {
         }
     }
 
+    setCardLiked(dataCard) {
+        this._likes = dataCard.likes;
+        this._updateCardLiked();
+    }
 }
 
 
