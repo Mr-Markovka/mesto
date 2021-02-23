@@ -9,7 +9,7 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithSubmit from '../components/PopupWithSubmit.js';
 import FormValidator from '../components/FormValidator.js';
 
-const profileAvatarButton = document.querySelector('.profile__avatar-button'); /* кнопка открывает попап-аватар*/
+const profileAvatarButton = document.querySelector('.profile__avatar-container'); /* кнопка открывает попап-аватар*/
 
 const profileOpenButton = document.querySelector('.profile__open-button');  /* кнопка открывает попап-профайл*/
 const profileAddButton = document.querySelector('.profile__add-button');    /* кнопка в профайле открывает попап для карточек*/
@@ -91,7 +91,6 @@ const popupCardForm = new PopupWithForm({
     handleFormSubmit: (data) => {
         api.addCard(data)
             .then((resData) => {
-                // console.log(resData);
                 const card = createCard(resData);
                 cardsSection.addItem(card, 'begin');
             })
@@ -154,22 +153,9 @@ function createCard(dataCard) {
 function handleCardClick(data) {
     popupImage.open(data)
 }
-/*показ кнопки попап-аватар */
-function showButton() {
-    profileAvatarButton.classList.add('profile__avatar-button_opened');
-}
-/*скрытие кнопки попап-аватар */
-function hideButton() {
-    profileAvatarButton.classList.remove('profile__avatar-button_opened');
-}
 
-profileAvatar.addEventListener('mouseover', showButton);
-profileAvatar.addEventListener('mouseout', hideButton);
-profileAvatarButton.addEventListener('mouseover', showButton);
-
-
+/* открытие попап-avatar*/
 profileAvatarButton.addEventListener('click', () => {
-    popupAvatarForm.reset();
     const getUserInfo = userInfo.getUserInfo();
     inputAvatar.value = getUserInfo.avatar;
     validationFormAvatar.setButtonState(true);
@@ -206,6 +192,3 @@ popupAvatarWithForm.setEventListeners();
 
 popupImage.setEventListeners();
 popupConfirm.setEventListeners();
-
-userInfo.setUserInfo('Верблюд', 'Корабль пустыни');
-userInfo.updateUserInfo();
