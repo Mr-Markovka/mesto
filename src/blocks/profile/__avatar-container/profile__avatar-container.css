@@ -8,12 +8,12 @@
 }
 
 .profile__avatar-container::before{
-    content:"";
+    content: "";
     position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color:  rgba(0, 0, 0, 0.8);
     opacity: 0;
     transition: opacity 0.3s;
@@ -25,7 +25,7 @@
     -webkit-transition: all 1s ease;
     -o-transition: all 1s ease;
     -moz-transition: all 1s ease;
-} 
+}
 
 .profile__avatar-container::after{
     content: "";
@@ -34,7 +34,7 @@
     height: 26px;
     background-size: contain;
     background-repeat:no-repeat;
-    position: absolute; 
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
